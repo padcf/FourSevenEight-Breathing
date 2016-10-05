@@ -35,84 +35,45 @@ public class BreathingSet
 		for(int i=0;i<numOfSets;i++)
 		{
 			//play starting gong for breathIn and wait n seconds
-			try
-			{
-				AudioClip clip = Applet.newAudioClip(new URL("file:./sound.wav"));
-				clip.play();
-			}
-			catch	(MalformedURLException murle)
-			{
-				murle.printStackTrace();
-			}
-
-
-			try
-			{
-				Thread.sleep(this.breathIn * 1000);
-			}
-			catch(InterruptedException e)
-			{
-
-				System.out.println(e);
-			}
-
+			playSound();
+			pauseTime(1000);
 			//play gong for breathHold and wait n seconds
-			try
-			{
-				AudioClip clip = Applet.newAudioClip(new URL("file:./sound.wav"));
-				clip.play();
-			}
-			catch	(MalformedURLException murle)
-			{
-				murle.printStackTrace();
-			}
-
-
-			try
-			{
-				Thread.sleep(this.breathHold * 1000);
-			}
-			catch(InterruptedException e)
-			{
-
-				System.out.println(e);
-			}
-
-
+			playSound();
+			pauseTime(1000);
 			//play gong for breathOut and wait n seconds
-			try
-			{
-				AudioClip clip = Applet.newAudioClip(new URL("file:./sound.wav"));
-				clip.play();
-			}
-			catch	(MalformedURLException murle)
-			{
-				murle.printStackTrace();
-			}
-
-
-			try
-			{
-				Thread.sleep(this.breathOut * 1000);
-			}
-			catch(InterruptedException e)
-			{
-
-				System.out.println(e);
-			}
-
+			playSound();
+			pauseTime(1000);
 			//play ending gong
-			try
-			{
-				AudioClip clip = Applet.newAudioClip(new URL("file:./sound.wav"));
-				clip.play();
-			}
-			catch	(MalformedURLException murle)
-			{
-				murle.printStackTrace();
-			}				
+			playSound();
+
 		}//end of for loop
 	}//end of playSet method
+
+	public void playSound()
+	{
+		try
+			{
+				AudioClip clip = Applet.newAudioClip(new URL("file:./sound.wav"));
+				clip.play();
+			}
+			catch	(MalformedURLException murle)
+			{
+				murle.printStackTrace();
+			}
+	}
+
+	public void pauseTime(int seconds)
+	{
+		try
+			{
+				Thread.sleep(this.breathOut * seconds);
+			}
+			catch(InterruptedException e)
+			{
+
+				System.out.println(e);
+			}
+	}
 
 			
 }//end of class
